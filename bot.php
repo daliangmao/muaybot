@@ -13,6 +13,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
+			/*
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -41,6 +42,9 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
+			*/
+			$response = file_get_contents('http://119.59.125.110/muayhoo/chatboard/5412/'.$text);
+			echo $response;
 		}
 		else if ($event['type'] == 'join') {
 			
