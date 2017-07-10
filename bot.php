@@ -24,13 +24,14 @@ if (!is_null($events['events'])) {
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
+			*/
+			$url = 'http://119.59.125.110/muayhoo/chatboard';
 			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
+				'id' => 5412,
+				'msg' => $text,
 			];
 			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$headers = array('Content-Type: application/json');
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -41,10 +42,9 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
-			echo $result . "\r\n";
-			*/
-			$response = file_get_contents('http://119.59.125.110/muayhoo/chatboard/5412/'.$text);
-			echo $response;
+			echo $result;
+			//$response = file_get_contents('http://119.59.125.110/muayhoo/chatboard/5412/'.$text);
+			//echo $response;
 		}
 		else if ($event['type'] == 'join') {
 			
