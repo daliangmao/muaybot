@@ -62,6 +62,7 @@ if (!is_null($events['events'])) {
 				$metaDatas = stream_get_meta_data($tempfile);
 				$location = $metaDatas['uri'];
 			    fwrite($tempfile, $response->getRawBody());
+				$text = file_exists($location)?filesize($location):"no have";
 			    //$fp = fopen('/images/'.$msgId, 'w');
 				//fwrite($fp, $response->getRawBody());
 				//fclose($tempfile);
