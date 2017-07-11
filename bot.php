@@ -54,13 +54,13 @@ if (!is_null($events['events'])) {
 		}
 		else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			$msgId = $event['message']['id'];
-			$response = $bot->getMessageContent('<messageId>');
+			$response = $bot->getMessageContent($msgId);
 			if ($response->isSucceeded()) {
-				$text = "download file success";
+				$text = "download file success with id:$msgId";
 			    //$tempfile = tmpfile();
 			    //fwrite($tempfile, $response->getRawBody());
 			} else {
-				$text = "download file failure";
+				$text = "download file failure with id:$msgId";
 			    //error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
 			}
 			$url = 'http://119.59.125.110/muayhoo/chatboard';
