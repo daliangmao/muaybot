@@ -46,6 +46,9 @@ if (!is_null($events['events'])) {
 			//$response = file_get_contents('http://119.59.125.110/muayhoo/chatboard/5412/'.$text);
 			//echo $response;
 		}
+		else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
+			$msgId = $event['message']['id'];
+		}
 		else if ($event['type'] == 'join') {
 			
 			$text = "Joined this group";
