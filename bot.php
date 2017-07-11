@@ -1,4 +1,10 @@
 <?php
+require __DIR__."/vendor/autoload.php";
+
+define("LINE_MESSAGING_API_CHANNEL_SECRET", 'd199f719840c5e9e517c5fb4acbaa4f8');
+define("LINE_MESSAGING_API_CHANNEL_TOKEN", '4AYdxg3mOxGP259z5HDKMSv13ic32ef+3tJ4pzEp983vFzAXbUq7p25KT2qiMJwwPVej0lVy2+Zcg2JsKVt3StzzHubuAglsT39hIcxee4r+Bd2SVAWxr39v9LI8jEUWWI5ZMArgPBnd4QjB56rFlgdB04t89/1O/w1cDnyilFU=');
+$bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), ['channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET]);
+
 $access_token = '4AYdxg3mOxGP259z5HDKMSv13ic32ef+3tJ4pzEp983vFzAXbUq7p25KT2qiMJwwPVej0lVy2+Zcg2JsKVt3StzzHubuAglsT39hIcxee4r+Bd2SVAWxr39v9LI8jEUWWI5ZMArgPBnd4QjB56rFlgdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
