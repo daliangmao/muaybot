@@ -59,8 +59,8 @@ if (!is_null($events['events'])) {
 			if ($response->isSucceeded()) {
 				$text = "https://limitless-bastion-20186.herokuapp.com/images/".$msgId;
 			    $tempfile = tmpfile();
-				//$metaDatas = stream_get_meta_data($tempfile);
-				//$text = $metaDatas['uri'];
+				$metaDatas = stream_get_meta_data($tempfile);
+				$location = $metaDatas['uri'];
 			    fwrite($tempfile, $response->getRawBody());
 			    //$fp = fopen('/images/'.$msgId, 'w');
 				//fwrite($fp, $response->getRawBody());
@@ -70,11 +70,16 @@ if (!is_null($events['events'])) {
 			    //error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
 			}
 			$url = 'http://119.59.125.110/muayhoo/chatboard';
+			if (function_exists('curl_file_create')) { // php 5.5+
+				$cFile = curl_file_create($location);
+			} else { // 
+				$cFile = '@' . realpath($location);
+			}
 			$data = [
 				'id' => 5412,
 				'type' => 'image',
 				'msg' => $text,
-				'file'=> $tempfile,
+				'file'=> $cFile,
 			];
 			$get = json_encode($data);
 			$headers = array('Content-Type: application/json');
