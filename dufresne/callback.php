@@ -7,9 +7,8 @@ require __DIR__."/../vendor/autoload.php";
 $bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), ['channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET]);
 $signature = $_SERVER["HTTP_".\LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
 $body = file_get_contents("php://input");
-echo $signature;
-/*
 $events = $bot->parseEventRequest($body, $signature);
+/*
 
 
 foreach ($events as $event) {
