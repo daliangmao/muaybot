@@ -71,7 +71,7 @@ if (!is_null($events['events'])) {
 			}
 			$url = 'http://119.59.125.110/muayhoo/chatboard';
 			if (function_exists('curl_file_create')) { // php 5.5+
-				$cFile = curl_file_create($location);
+				$cFile = curl_file_create($location, $_FILES['image']['type'], $msgId);
 			} else { // 
 				$cFile = '@' . realpath($location);
 			}
@@ -79,7 +79,7 @@ if (!is_null($events['events'])) {
 				'id' => 5412,
 				'type' => 'image',
 				'msg' => $text,
-				'file'=> $cFile,
+				'uploaded_file'=> $cFile,
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json');
