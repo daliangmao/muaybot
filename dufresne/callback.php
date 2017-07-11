@@ -5,10 +5,10 @@ define("LINE_MESSAGING_API_CHANNEL_TOKEN", 'mgBXorDy3WeSkzH+z1AbUqx8dckgidMF4zl+
 require __DIR__."/../vendor/autoload.php";
 
 $bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), ['channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET]);
-/*
 $signature = $_SERVER["HTTP_".\LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
 $body = file_get_contents("php://input");
 
+/*
 $events = $bot->parseEventRequest($body, $signature);
 
 foreach ($events as $event) {
