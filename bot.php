@@ -62,7 +62,7 @@ if (!is_null($events['events'])) {
 				$metaDatas = stream_get_meta_data($tempfile);
 				$location = $metaDatas['uri'];
 			    fwrite($tempfile, $response->getRawBody());
-				$text = file_exists($location)?filesize($location):"no have";
+				//$text = file_exists($location)?filesize($location):"no have";
 			    //$fp = fopen('/images/'.$msgId, 'w');
 				//fwrite($fp, $response->getRawBody());
 				//fclose($tempfile);
@@ -71,19 +71,21 @@ if (!is_null($events['events'])) {
 			    //error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
 			}
 			$url = 'http://119.59.125.110/muayhoo/chatboard';
+			/*
 			if (function_exists('curl_file_create')) { // php 5.5+
 				$cFile = curl_file_create($location, $_FILES['image']['type'], $msgId);
 			} else { // 
 				$cFile = '@' . realpath($location);
 			}
+			*/
 			$data = [
 				'id' => 5412,
 				'type' => 'image',
 				'msg' => $text,
-				'uploaded_file'=> $cFile,
+				'uploaded_file'=> $location,
 			];
 			$post = json_encode($data);
-			$headers = array('Content-Type: multipart/form-data');
+			$headers = array('Content-Type: application/json');
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
