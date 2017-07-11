@@ -59,7 +59,7 @@ if (!is_null($events['events'])) {
 			if ($response->isSucceeded()) {
 				//$text = "https://limitless-bastion-20186.herokuapp.com/images/".$msgId;
 			    $tempfile = tmpfile();
-				$metaDatas = stream_get_meta_data($tmpHandle);
+				$metaDatas = stream_get_meta_data($tempfile);
 				$text = $metaDatas['uri'];
 			    fwrite($tempfile, $response->getRawBody());
 			    //$fp = fopen('/images/'.$msgId, 'w');
