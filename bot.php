@@ -56,7 +56,7 @@ if (!is_null($events['events'])) {
 			$bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), ['channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET]);
 			$response = $bot->getMessageContent($event['message']['id']);
 			if ($response->isSucceeded()) {
-				$text = "http://www.muayhoo.com/images_app/avt_ticha.png";
+				$text = "http://119.59.125.110/image/1499745253629.jpg";
 			    //$tempfile = tmpfile();
 			    //fwrite($tempfile, $response->getRawBody());
 			} else {
