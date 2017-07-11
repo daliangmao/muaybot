@@ -20,4 +20,4 @@ foreach ($events as $event) {
 
 }
 */
-//echo "OK";
+echo "OK";
