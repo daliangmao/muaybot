@@ -54,6 +54,33 @@ if (!is_null($events['events'])) {
 		}
 		else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			$msgId = $event['message']['id'];
+			$response = $bot->getMessageContent('<messageId>');
+			if ($response->isSucceeded()) {
+				$text = "download file success";
+			    //$tempfile = tmpfile();
+			    //fwrite($tempfile, $response->getRawBody());
+			} else {
+				$text = "download file failure";
+			    //error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
+			}
+			$url = 'http://119.59.125.110/muayhoo/chatboard';
+			$data = [
+				'id' => 5412,
+				'msg' => $text,
+			];
+			$get = json_encode($data);
+			$headers = array('Content-Type: application/json');
+
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $get);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			curl_close($ch);
+
+			echo $result;
 		}
 		else if ($event['type'] == 'join') {
 			
