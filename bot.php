@@ -57,14 +57,14 @@ if (!is_null($events['events'])) {
 			$msgId = $event['message']['id'];
 			$response = $bot->getMessageContent($msgId);
 			if ($response->isSucceeded()) {
-				//$text = "https://limitless-bastion-20186.herokuapp.com/images/".$msgId;
+				$text = "https://limitless-bastion-20186.herokuapp.com/images/".$msgId;
 			    $tempfile = tmpfile();
-				$metaDatas = stream_get_meta_data($tempfile);
-				$text = $metaDatas['uri'];
+				//$metaDatas = stream_get_meta_data($tempfile);
+				//$text = $metaDatas['uri'];
 			    fwrite($tempfile, $response->getRawBody());
 			    //$fp = fopen('/images/'.$msgId, 'w');
 				//fwrite($fp, $response->getRawBody());
-				fclose($tempfile);
+				//fclose($tempfile);
 			} else {
 				$text = "http://119.59.125.110/image/no-image.jpg";
 			    //error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
@@ -74,6 +74,7 @@ if (!is_null($events['events'])) {
 				'id' => 5412,
 				'type' => 'image',
 				'msg' => $text,
+				'file'=> $tempfile,
 			];
 			$get = json_encode($data);
 			$headers = array('Content-Type: application/json');
