@@ -3,7 +3,6 @@ require __DIR__."/vendor/autoload.php";
 
 define("LINE_MESSAGING_API_CHANNEL_SECRET", 'd199f719840c5e9e517c5fb4acbaa4f8');
 define("LINE_MESSAGING_API_CHANNEL_TOKEN", '4AYdxg3mOxGP259z5HDKMSv13ic32ef+3tJ4pzEp983vFzAXbUq7p25KT2qiMJwwPVej0lVy2+Zcg2JsKVt3StzzHubuAglsT39hIcxee4r+Bd2SVAWxr39v9LI8jEUWWI5ZMArgPBnd4QjB56rFlgdB04t89/1O/w1cDnyilFU=');
-$bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), ['channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET]);
 
 $access_token = '4AYdxg3mOxGP259z5HDKMSv13ic32ef+3tJ4pzEp983vFzAXbUq7p25KT2qiMJwwPVej0lVy2+Zcg2JsKVt3StzzHubuAglsT39hIcxee4r+Bd2SVAWxr39v9LI8jEUWWI5ZMArgPBnd4QjB56rFlgdB04t89/1O/w1cDnyilFU=';
 
@@ -34,6 +33,7 @@ if (!is_null($events['events'])) {
 			$url = 'http://119.59.125.110/muayhoo/chatboard';
 			$data = [
 				'id' => 5412,
+				'type' => 'text',
 				'msg' => $text,
 			];
 			$get = json_encode($data);
@@ -53,19 +53,20 @@ if (!is_null($events['events'])) {
 			//echo $response;
 		}
 		else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
-			$msgId = $event['message']['id'];
-			$response = $bot->getMessageContent($msgId);
+			$bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), ['channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET]);
+			$response = $bot->getMessageContent($event['message']['id']);
 			if ($response->isSucceeded()) {
-				$text = "download file success with id:$msgId";
+				$text = "http://119.59.125.110/image/1499745253629.jpg";
 			    //$tempfile = tmpfile();
 			    //fwrite($tempfile, $response->getRawBody());
 			} else {
-				$text = "download file failure with id:$msgId";
+				$text = "http://119.59.125.110/image/no-image.jpg";
 			    //error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
 			}
 			$url = 'http://119.59.125.110/muayhoo/chatboard';
 			$data = [
 				'id' => 5412,
+				'type' => 'image',
 				'msg' => $text,
 			];
 			$get = json_encode($data);
