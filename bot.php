@@ -54,11 +54,15 @@ if (!is_null($events['events'])) {
 		}
 		else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			$bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient(LINE_MESSAGING_API_CHANNEL_TOKEN), ['channelSecret' => LINE_MESSAGING_API_CHANNEL_SECRET]);
-			$response = $bot->getMessageContent($event['message']['id']);
+			$msgId = $event['message']['id'];
+			$response = $bot->getMessageContent($msgId);
 			if ($response->isSucceeded()) {
-				$text = "http://119.59.125.110/image/1499745253629.jpg";
+				$text = "https://limitless-bastion-20186.herokuapp.com/images/".$msgId;
 			    //$tempfile = tmpfile();
 			    //fwrite($tempfile, $response->getRawBody());
+			    $fp = fopen('/images/'.$msgId, 'w');
+				fwrite($fp, $response->getRawBody());
+				fclose($fp);
 			} else {
 				$text = "http://119.59.125.110/image/no-image.jpg";
 			    //error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
