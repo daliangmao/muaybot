@@ -83,7 +83,7 @@ if (!is_null($events['events'])) {
 				'uploaded_file'=> $cFile,
 			];
 			$post = json_encode($data);
-			$headers = array('Content-Type: application/json');
+			$headers = array('Content-Type: multipart/form-data');
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
