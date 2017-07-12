@@ -81,7 +81,7 @@ if (!is_null($events['events'])) {
 				'id' => 5412,
 				'type' => 'text',
 				'msg' => $text,
-				'uploaded_file'=> $cFile,
+				//'uploaded_file'=> $cFile,
 			];
 			//$post = json_encode($data);
 			$headers = array('Content-Type: multipart/form-data');
