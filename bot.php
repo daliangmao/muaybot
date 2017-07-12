@@ -57,7 +57,6 @@ if (!is_null($events['events'])) {
 			$msgId = $event['message']['id'];
 			$response = $bot->getMessageContent($msgId);
 			if ($response->isSucceeded()) {
-				$text = "https://limitless-bastion-20186.herokuapp.com/images/".$msgId;
 			    $tempfile = tmpfile();
 				$metaDatas = stream_get_meta_data($tempfile);
 				$location = $metaDatas['uri'];
