@@ -71,26 +71,26 @@ if (!is_null($events['events'])) {
 			    //error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
 			}
 			$url = 'http://119.59.125.110/muayhoo/chatboard';
-			/*
 			if (function_exists('curl_file_create')) { // php 5.5+
 				$cFile = curl_file_create($location, $_FILES['image']['type'], $msgId);
 			} else { // 
 				$cFile = '@' . realpath($location);
 			}
+			/*
 			*/
 			$data = [
 				'id' => 5412,
 				'type' => 'image',
 				'msg' => $text,
-				'uploaded_file'=> $location,
+				'uploaded_file'=> $cFile,
 			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json');
+			//$post = json_encode($data);
+			$headers = array('Content-Type: multipart/form-data');
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
