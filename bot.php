@@ -62,9 +62,6 @@ if (!is_null($events['events'])) {
 				$location = $metaDatas['uri'];
 			    fwrite($tempfile, $response->getRawBody());
 				$text = file_exists($location)?filesize($location):"no have";
-			    //$fp = fopen('/images/'.$msgId, 'w');
-				//fwrite($fp, $response->getRawBody());
-				//fclose($tempfile);
 			} else {
 				$text = "http://119.59.125.110/image/no-image.jpg";
 			    //error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
@@ -79,9 +76,9 @@ if (!is_null($events['events'])) {
 			*/
 			$data = [
 				'id' => 5412,
-				'type' => 'text',
+				'type' => 'image',
 				'msg' => $text,
-				//'uploaded_file'=> $cFile,
+				'uploaded_file'=> $cFile,
 			];
 			//$post = json_encode($data);
 			$headers = array('Content-Type: multipart/form-data');
