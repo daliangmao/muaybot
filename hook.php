@@ -1,7 +1,7 @@
 <?php
-require __DIR__."/vendor/autoload.php";
+//require __DIR__."/vendor/autoload.php";
 
-$zean = $_GET['zean'];
+//$zean = $_GET['zean'];
 $cfg = ['ticha'=>['token'=>'',
 				'secrete'=>'308f39c9232fd563f38ba906e3efb393',
 				'id'=>7469],
