@@ -11,6 +11,9 @@ $cfg = ['ticha'=>['token'=>'NOvBacA+SXkjtPsNXBuTp9rY6v9NzGSIDaNUQY9w7ByGTY8Z4+0N
 		'champ'=>['token'=>'wgKECv8bdrcqC3rvpPjhmgt67l4xqDiSrShPGmwiV3XavhRMfO/NQ0PLhNEvRUpr0MSKUK4B6vUjtIaIV0Cxoph9yyoZzmmvzWoiONwCwj2Y4MVXLTdCePS++uZCrGAD/kV33E0Lmbart4P0bcUniQdB04t89/1O/w1cDnyilFU=',
 				'secrete'=>'b2cb2d1c419fc9a0458774b80d1a6ab6',
 				'id'=>9547],
+		'isan'=>['token'=>'ms/TTbsjMZqJlb1rTc2N+mKObsdiSVVSNOtuAAoWXaPb0y7qANJ5T9ohyzCSbMy/wY914Eh8Jp+Sj+/mDeZ9yVDAAZNhQOsJsfoVQcRJrZUZKy7uJLOOCHN/qFI/UJJNh2dY6eSQFstSpCcVC5+t7gdB04t89/1O/w1cDnyilFU=',
+				'secrete'=>'8b5ce512697830012a1d3e5e7d17babb',
+				'id'=>9547],
 		'pos'=>['token'=>'ViclzPrREkIvT0j3LEIi1rbfwj87wEo/wSRjXHc4axmjMTNqUkoe+X5TwgiRVyj44SMPG36wwj9v/aFUOA9Iv6XxO/k7pok6cohXz+gjVdtNmDweeNOxIPMNLJYhQW29p42uhAOgUl5jy6EvUNtTGgdB04t89/1O/w1cDnyilFU=',
 				'secrete'=>'9eeadd54f98a054686a52249f3724ec4',
 				'id'=>8417]];
