@@ -12,7 +12,7 @@ $config = ['ticha'=>['token'=>'',
 				'secrete'=>'9eeadd54f98a054686a52249f3724ec4',
 				'id'=>8417]];
 
-die(var_dump($config[$zean]));
+echo "ok";
 /*
 // Get POST body content
 $content = file_get_contents('php://input');
