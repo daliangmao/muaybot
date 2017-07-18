@@ -1,10 +1,10 @@
 <?php
 require __DIR__."/vendor/autoload.php";
 
-define("LINE_MESSAGING_API_CHANNEL_SECRET", 'd77543d567929f6ec5ffeccc57b4194a');
-define("LINE_MESSAGING_API_CHANNEL_TOKEN", '0TTQ7EsQVzeYkVArBlsS0ccx1TAHvJT0xpaBb2mdfZz4Tj+Eu9pZYFfUoOPaWqbVURcArBe2TGKD9ZAnT9o0/S5wSvI0jU+du6q35nMfjvZsh4tA0XBKPdIk890OH6i9ST5toNKjZcGiPZy0ub0KcQdB04t89/1O/w1cDnyilFU=');
+define("LINE_MESSAGING_API_CHANNEL_SECRET", '0fc16138deb58bff59be7bcc224ee936');
+define("LINE_MESSAGING_API_CHANNEL_TOKEN", 'q23T4FgquDCxS5KoAGeBPn1mI8Ia2JyDD/p0edrTedjWjRieaDmX/4Zjvtq37BuniVULAxCinSOJuOXh8sI0ak3FbrN8DOlzhMFV/l3koRtfzBTiIm8AGsjXV1p4daOwa8nyWDXuULoCQDc88BXHDwdB04t89/1O/w1cDnyilFU=');
 
-$access_token = '0TTQ7EsQVzeYkVArBlsS0ccx1TAHvJT0xpaBb2mdfZz4Tj+Eu9pZYFfUoOPaWqbVURcArBe2TGKD9ZAnT9o0/S5wSvI0jU+du6q35nMfjvZsh4tA0XBKPdIk890OH6i9ST5toNKjZcGiPZy0ub0KcQdB04t89/1O/w1cDnyilFU=';
+$access_token = 'q23T4FgquDCxS5KoAGeBPn1mI8Ia2JyDD/p0edrTedjWjRieaDmX/4Zjvtq37BuniVULAxCinSOJuOXh8sI0ak3FbrN8DOlzhMFV/l3koRtfzBTiIm8AGsjXV1p4daOwa8nyWDXuULoCQDc88BXHDwdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -32,7 +32,7 @@ if (!is_null($events['events'])) {
 			*/
 			$url = 'http://119.59.125.110/muayhoo/chatboard';
 			$data = [
-				'id' => 7469,
+				'id' => 8417,
 				'type' => 'text',
 				'msg' => $text,
 			];
@@ -49,7 +49,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result;
-			//$response = file_get_contents('http://119.59.125.110/muayhoo/chatboard/7469/'.$text);
+			//$response = file_get_contents('http://119.59.125.110/muayhoo/chatboard/8417/'.$text);
 			//echo $response;
 		}
 		else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
@@ -75,7 +75,7 @@ if (!is_null($events['events'])) {
 			/*
 			*/
 			$data = [
-				'id' => 7469,
+				'id' => 8417,
 				'type' => 'image',
 				'msg' => $text,
 				'uploaded_file'=> $cFile,
