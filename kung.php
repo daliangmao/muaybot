@@ -32,7 +32,7 @@ if (!is_null($events['events'])) {
 			*/
 			$url = 'http://119.59.125.110/muayhoo/chatboard';
 			$data = [
-				'id' => 8417,
+				'id' => 2634,
 				'type' => 'text',
 				'msg' => $text,
 			];
@@ -49,7 +49,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result;
-			//$response = file_get_contents('http://119.59.125.110/muayhoo/chatboard/8417/'.$text);
+			//$response = file_get_contents('http://119.59.125.110/muayhoo/chatboard/2634/'.$text);
 			//echo $response;
 		}
 		else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
@@ -75,7 +75,7 @@ if (!is_null($events['events'])) {
 			/*
 			*/
 			$data = [
-				'id' => 8417,
+				'id' => 2634,
 				'type' => 'image',
 				'msg' => $text,
 				'uploaded_file'=> $cFile,
