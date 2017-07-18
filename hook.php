@@ -3,11 +3,12 @@ require __DIR__."/vendor/autoload.php";
 require  __DIR__."/config.php";
 
 $zean = $_GET['zean'];
+die(var_dump($config[$zean]));
+/*
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-die(var_dump($config[$zean]));
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -110,3 +111,5 @@ if (!is_null($events['events'])) {
 	}
 }
 echo "OK";
+*/
+ */
