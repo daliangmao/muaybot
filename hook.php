@@ -2,7 +2,7 @@
 require __DIR__."/vendor/autoload.php";
 
 $zean = $_GET['zean'];
-$config = ['ticha'=>['token'=>'',
+$cfg = ['ticha'=>['token'=>'',
 				'secrete'=>'308f39c9232fd563f38ba906e3efb393',
 				'id'=>7469],
 		'kung'=>['token'=>'',
@@ -12,7 +12,7 @@ $config = ['ticha'=>['token'=>'',
 				'secrete'=>'9eeadd54f98a054686a52249f3724ec4',
 				'id'=>8417]];
 
-echo "ok";
+echo var_dump($cfg);
 /*
 // Get POST body content
 $content = file_get_contents('php://input');
