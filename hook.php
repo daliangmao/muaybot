@@ -45,7 +45,7 @@ if (!is_null($events['events'])) {
 			echo $result;
 		}
 		else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
-			$bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient($config[$zean]['token'],), ['channelSecret' => $config[$zean]['secrete'],]);
+			$bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient($cfg[$zean]['token']), ['channelSecret' => $cfg[$zean]['secrete']]);
 			$msgId = $event['message']['id'];
 			$response = $bot->getMessageContent($msgId);
 			if ($response->isSucceeded()) {
