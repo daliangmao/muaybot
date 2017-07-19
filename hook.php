@@ -29,6 +29,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
+			$userId = $event['source']['userId'];
 			$text = $event['message']['text'];
 			if (substr($text, 0, 1)=='#') {
 				$replyToken = $event['replyToken'];
@@ -69,6 +70,7 @@ if (!is_null($events['events'])) {
 					'id' => $cfg[$zean]['id'],
 					'type' => 'text',
 					'msg' => $text,
+					'sender' => $userId,
 				];
 				$post = json_encode($data);
 				$headers = array('Content-Type: application/json');
