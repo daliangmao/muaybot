@@ -33,7 +33,7 @@ if (!is_null($events['events'])) {
 			if (substr($text, 0, 1)=='#') {
 				$replyToken = $event['replyToken'];
 				if ($text=="#เมนู")
-					$text = "---- เมนู ----\n#เปิด\n#ปิด\n#รายงาน\n#สถานะ";
+					$text = "---- เมนู ----\n#เปิด\n#ปิด\n#รายงาน\n#สถานะ\n#พากย์\n#ไม่พากย์";
 				else {
 					$text = "ไม่พบคำสั่ง";
 				}
