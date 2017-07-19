@@ -30,25 +30,60 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
-			$url = 'http://119.59.125.110/muayhoo/chatboard';
-			$data = [
-				'id' => $cfg[$zean]['id'],
-				'type' => 'text',
-				'msg' => $text,
-			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json');
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-
-			echo $result;
+			if (substr($text, 0, 1)=='#') {
+				$replyToken = $event['replyToken'];
+				if ($text=="#เมนู")
+					$text = "---- เมน ----ู\n#เปิด\n#ปิด\n#รายงาน\n#สถานะ";
+				else {
+					$text = "ไม่พบคำสั่ง";
+				}
+				// Build message to reply back
+				$messages = [
+					'type' => 'text',
+					'text' => $text
+				];
+	
+				// Make a POST Request to Messaging API to reply to sender
+				$url = 'https://api.line.me/v2/bot/message/reply';
+				$data = [
+					'replyToken' => $replyToken,
+					'messages' => [$messages],
+				];
+				$post = json_encode($data);
+				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $cfg[$zean]['token']);
+	
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				$result = curl_exec($ch);
+				curl_close($ch);
+	
+				echo $result . "\r\n";
+			}
+			else {
+				$url = 'http://119.59.125.110/muayhoo/chatboard';
+				$data = [
+					'id' => $cfg[$zean]['id'],
+					'type' => 'text',
+					'msg' => $text,
+				];
+				$post = json_encode($data);
+				$headers = array('Content-Type: application/json');
+	
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				$result = curl_exec($ch);
+				curl_close($ch);
+	
+				echo $result;
+			}
 		}
 		else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			$bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient($cfg[$zean]['token']), ['channelSecret' => $cfg[$zean]['secrete']]);
