@@ -90,6 +90,7 @@ if (!is_null($events['events'])) {
 		else if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			$bot = new \LINE\LINEBot(new \LINE\LINEBot\HTTPClient\CurlHTTPClient($cfg[$zean]['token']), ['channelSecret' => $cfg[$zean]['secrete']]);
 			$msgId = $event['message']['id'];
+			$userId = $event['source']['userId'];
 			$response = $bot->getMessageContent($msgId);
 			if ($response->isSucceeded()) {
 			    $tempfile = tmpfile();
@@ -111,6 +112,7 @@ if (!is_null($events['events'])) {
 				'id' => $cfg[$zean]['id'],
 				'type' => 'image',
 				'msg' => $text,
+				'sender' => $userId,
 				'uploaded_file'=> $cFile,
 			];
 			$headers = array('Content-Type: multipart/form-data');
