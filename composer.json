@@ -1,0 +1,5 @@
+{
+    "require": {
+        "eelkevdbos/firebase-php": "dev-master"
+    }
+}
