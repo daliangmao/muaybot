@@ -1,5 +1,5 @@
 <?php
-//require __DIR__."/vendor/autoload.php";
+include dirname(__DIR__) . '/vendor/autoload.php';
+use Firebase\Firebase;
 
-$firebase = new \Geckob\Firebase\Firebase('services.json');
 echo "ok"
