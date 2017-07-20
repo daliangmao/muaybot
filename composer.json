@@ -1,5 +1,6 @@
 {
     "require": {
-        "eelkevdbos/firebase-php": "dev-master"
+        "eelkevdbos/firebase-php": "dev-master",
+        "geckob/firebase": "^0.1.1"
     }
 }

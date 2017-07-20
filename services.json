@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "533110254739",
+    "firebase_url": "https://muayhooapp-753f2.firebaseio.com",
+    "project_id": "muayhooapp-753f2",
+    "storage_bucket": "muayhooapp-753f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533110254739:android:07e5f14810a9f8b6",
+        "android_client_info": {
+          "package_name": "com.muayhoo.muayhoocalling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533110254739-nuqiu90r0aq26cipi2ecke83p7hi3gie.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.muayhoo.muayhoocalling",
+            "certificate_hash": "a03ebae71ec06c02b4423c26ea59de99017fea90"
+          }
+        },
+        {
+          "client_id": "533110254739-lup7bblfjght4lrheg649qirlnck925s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqHViqfL00HYGG7Sy7ttitm05unHVNWrk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533110254739-lup7bblfjght4lrheg649qirlnck925s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533110254739:android:69742cd03a6c61c7",
+        "android_client_info": {
+          "package_name": "com.muayhoo.livesod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533110254739-lup7bblfjght4lrheg649qirlnck925s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqHViqfL00HYGG7Sy7ttitm05unHVNWrk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
