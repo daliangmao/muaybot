@@ -23,6 +23,20 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
+function command($path, $params) {
+	$url = 'http://119.59.125.110/muayhoo'.$path;
+	$post = json_encode($params);
+	$headers = array('Content-Type: application/json');
+
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	return curl_exec($ch);
+}
+
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
@@ -35,6 +49,26 @@ if (!is_null($events['events'])) {
 				$replyToken = $event['replyToken'];
 				if ($text=="#เมนู")
 					$text = "---- เมนู ----\n#เปิด\n#ปิด\n#รายงาน\n#สถานะ\n#พากย์\n#ไม่พากย์";
+				else if ($text=="#เปิด") {
+					
+				}
+				else if ($text=="#ปิด") {
+					
+				}
+				else if ($text=="#รายงาน") {
+					
+				}
+				else if ($text=="#สถานะ") {
+					
+				}
+				else if ($text=="#พากย์") {
+					$result = json_decode(command('/actor/add', ['zean'=>$cfg[$zean]['id'], 'sender'=>$userId]));
+					$text = $result->msg;
+				}
+				else if ($text=="#ไม่พากย์") {
+					$result = json_decode(command('/actor/delete', ['zean'=>$cfg[$zean]['id'], 'sender'=>$userId]));
+					$text = $result->msg;
+				}
 				else {
 					$text = "ไม่พบคำสั่ง";
 				}
